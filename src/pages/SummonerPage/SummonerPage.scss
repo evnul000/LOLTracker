@@ -1,0 +1,231 @@
+// SummonerPage.scss
+
+.summoner-page {
+    position: relative;
+  }
+  
+  .left-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 50vh; /* Adjust the width as needed */
+    background-color: #000000; /* Light gray background */
+    padding: 20px;
+    align-items: center;
+    display:flex;
+    flex-direction: column; /* Stack items from top to bottom */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */.glitch {
+    color: rgb(223, 191, 191);
+    position: relative;
+    font-size: 7vh;
+    font-family: "Oswald", sans-serif;
+    font-style: italic;
+    animation: glitch 5s 5s infinite;
+  }
+  
+  .glitch::before {
+    content: attr(data-text);
+    font-weight: bolder;
+    position: absolute;
+    left: -2px;
+    text-shadow: -5px 0 rgb(255, 170, 0);
+    overflow: hidden;
+    top: 0;
+    animation: noise-1 3s linear infinite alternate-reverse, glitch 5s 5.05s infinite;
+  }
+  
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    text-shadow: -5px 0 rgb(144, 144, 238);
+    overflow: hidden;
+    top: 0;
+    animation: noise-2 3s linear infinite alternate-reverse, glitch 5s 5s infinite;
+  }
+  
+  @keyframes glitch {
+    1%{
+      transform: rotateX(10deg) skewX(20deg);
+    }
+    2%{
+      transform: rotateX(0deg) skewX(0deg);
+    }
+  }
+  
+  @keyframes noise-1 {
+    $steps: 30;
+    @for $i from 1 through $steps {
+      #{percentage($i* calc(1/$steps))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+      }
+    }
+  }
+  
+  @keyframes noise-2 {
+    $steps: 30;
+    @for $i from 0 through $steps {
+      #{percentage($i* calc(1/$steps))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+      }
+    }
+  }
+
+  .summoner-level{
+    background-color: aquamarine;
+    color:black;
+    font-weight: bold;
+    padding: 1vh;
+    border-radius: 2vh;
+  }
+  }
+  
+  .champion-death{
+    color:red;
+    font-weight:bold;
+  }
+  
+.team-icon{
+  width:3vh;
+}
+  .right-content {
+    position: relative;
+    margin-left: 60vh; /* Ensure content starts after the fixed sidebar */
+    padding: 20px;
+    width: 90vh;
+
+    .champion-items{
+        display: flex;
+        img{
+            margin-right: 2vh;
+            height: 6vh;
+            border-radius: 3vh;
+            
+        }
+        .placeholder{
+            margin-right: 2vh;
+            height: 6vh;
+            width:6vh;
+            border-radius: 50%;
+            background-color: #00000071;
+        }
+    }
+    .common-players {
+        position: absolute;
+        top: 0;
+        left: 100vh;
+        width: 300px; 
+        // Adjust width as needed
+       
+        ul{
+            padding: 2px;
+            list-style-type: none;
+            li{
+                background-color: #2196f3;
+                padding: 2vh;
+                border-style: solid;
+                border-color: black;
+                margin-top: 5px;
+                border-radius: 2vh;
+            }
+        }
+      }
+  }
+  
+  .profile-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .update-button {
+    padding: 10px 20px;
+    background-color: #2196f3; /* Blue color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .update-button:hover {
+    background-color: #0d47a1; /* Darker shade of blue */
+    height: 6vh;
+  }
+  
+  .match-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  .participant-full{
+    display:flex;
+  }
+  .result{
+        font-family: "Oswald", sans-serif;
+        font-style: italic;
+        font-weight: bolder;
+       
+    }
+  .match-item {
+    background-color: #ffffff; /* White background */
+    border-radius: 20px;
+    padding: 3vh;
+    margin-bottom: 4vh;
+    
+    
+   .full-team{
+    display: flex;
+    font-size: 1.5vh;
+    .teammates{
+        flex: 0 0 45%; // Limit width of teammate and enemy lists
+        padding: 0 10px; // Add padding to separate list items
+    }
+        .enemies {
+           
+            flex: 0 0 45%; // Limit width of teammate and enemy lists
+            padding: 0 10px; // Add padding to separate list items
+        }
+        }
+  } 
+  
+  .victory {
+    background-color: #2196f3; /* Blue color */
+    box-shadow: 0px 6px 30px rgba(1, 186, 253, 0.312);
+  }
+  
+  .defeat {
+    background-color: #f4433695; /* Red color */
+    box-shadow: 0px 6px 50px rgba(255, 0, 0, 0.295);
+  }
+  
+  
+  
+  .champion-wrapper {
+    position: relative;
+  }
+  
+  .champion-level {
+    position: absolute;
+    align-items: center;
+    top: 5vh;
+    left: 6vh;
+    height:2.5vh;
+    margin: 0;
+    background-color: rgba(66, 66, 66, 0.8); /* Add background color to make the text readable */
+    padding: 5px;
+    border-radius: 50%;
+  }
+  
+  .champion-icon {
+    width: 10vh; /* Adjust the size as needed */
+    border-radius: 50%;
+    border-style:double;
+    box-shadow: 0px 6px 50px rgba(3, 0, 0, 0.605);
+  }
